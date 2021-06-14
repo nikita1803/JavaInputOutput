@@ -14,12 +14,21 @@ public class EmployeePayrollService
     	
     }
 
+    /**
+     * Created a parameterized constructor of the class .
+     * @param employeePayrollList
+     */
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) 
     {
     	this.employeePayrollList=employeePayrollList;
     }
 
-    public static void main(String[] args) {
+    /**
+     * Here main method is use to read and write the data from the console.
+     * @param args
+     */
+    public static void main(String[] args) 
+    {
         System.out.println("Welcome to the Employee PayRoll Service Program");
         ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
@@ -27,8 +36,12 @@ public class EmployeePayrollService
         employeePayrollService.readEmployeePayrollData(consoleInputReader);
         employeePayrollService.writeEmployeePayrollData();
     }
-    /* Read Employee Payroll data from console */
-    private void readEmployeePayrollData(Scanner consoleInputReader) {
+    /**
+     * This method is use to read the data from the console .
+     * @param consoleInputReader
+     */
+    private void readEmployeePayrollData(Scanner consoleInputReader) 
+    {
         System.out.println("Enter Employree ID:");
         int id = consoleInputReader.nextInt();
         System.out.println("Enter Employree Name");
@@ -39,7 +52,9 @@ public class EmployeePayrollService
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
-    /*Write Employee Payroll data to console*/
+    /**
+     * This method is use to write the data from the console .
+     */
     private void writeEmployeePayrollData() {
         System.out.println("\nWritting Employee Payroll Roaster to Console\n" + employeePayrollList);
     }
