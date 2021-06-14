@@ -56,5 +56,16 @@ public class NIOFileAPITest
         Files.newDirectoryStream(playPath).forEach(System.out::println);
         Files.newDirectoryStream(playPath, path -> path.toFile().isFile() && path.toString().startsWith("temp")).forEach(System.out::println);
     }
+    
+    /**
+     * This test method is use to test all the activities .
+     * @throws IOException
+     */
+    @Test
+    public void givenDirectory_WhenWatchedListsAllTheActivities() throws IOException {
+        Path dir = Paths.get(HOME + "/" + PLAY_WITH_NIO);
+        Files.list(dir).filter(Files::isRegularFile).forEach(System.out::println);
+        new Java8WatchServiceExample(dir).processEvents();
+    }
 
 }
